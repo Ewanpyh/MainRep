@@ -1,1 +1,1 @@
-# MainRep
+# Repository for my projects
