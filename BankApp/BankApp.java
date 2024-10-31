@@ -6,23 +6,17 @@ import java.util.HashMap;
 
 class User{
     private int Id;
-    private String name;
     private double balance;
     private int password;
 
-    public User(int Id, String name, double balance, int password){
+    public User(int Id, double balance, int password){
         this.Id = Id;
-        this.name = name;
         this.balance = balance;
         this.password = password;
     }
 
     public int getId(){
         return Id;
-    }
-
-    public String getName(){
-        return name;
     }
 
     public int getPassword(){
@@ -39,12 +33,17 @@ class User{
 }
 
 public class BankApp {
-    
-    public boolean registerUser(){
-        return false;
+    private HashMap<User, Integer> users = new HashMap<>(); //List of users
+    private String currentUser;
+
+    public boolean registerUser(int id, int password){
+
+        return true;
     }
 
-    public boolean loginUser(){
+    public boolean loginUser(int id, int pass){
+        //another case here if User exists
+
         return true;
     }
 
@@ -52,6 +51,7 @@ public class BankApp {
     public static void main(String[] args){
         BankApp bankapp = new BankApp();
         Scanner scanner = new Scanner(System.in);
+        int id;
         while (true) {
         System.out.println("Choose the options:");
         System.out.println("1. sign up");
@@ -61,10 +61,18 @@ public class BankApp {
         int firstcase = scanner.nextInt();
             switch (firstcase) {
                 case 1: 
-                bankapp.registerUser();
+                System.out.println("Enter the users id:");
+                id = scanner.nextInt();
+                System.out.println("Enter the password:");
+                int password = scanner.nextInt();
+                bankapp.registerUser(id, password);
                     break;
                 case 2:
-                bankapp.loginUser();
+                System.out.print("Enter user's id: ");
+                id = scanner.nextInt();
+                System.out.print("Enter the password: ");
+                int pass = scanner.nextInt();
+                bankapp.loginUser(id, pass);
                     break;
                 case 3:
                     return;
